@@ -38,10 +38,7 @@ public class ClienteController {
 
         UriComponents uriComponents = builder.path("/cliente/{id}").buildAndExpand(cliente.getId());
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(uriComponents.toUri());
-
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+        return ResponseEntity.created(uriComponents.toUri()).build();
     }
 
 }
