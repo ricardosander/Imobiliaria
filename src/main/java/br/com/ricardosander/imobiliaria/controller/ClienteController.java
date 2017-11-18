@@ -1,7 +1,7 @@
 package br.com.ricardosander.imobiliaria.controller;
 
+import br.com.ricardosander.imobiliaria.ClienteService;
 import br.com.ricardosander.imobiliaria.model.Cliente;
-import br.com.ricardosander.imobiliaria.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClienteController {
 
     @Autowired
-    private ClienteRepository repository;
+    private ClienteService service;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Cliente> ver(@PathVariable Long id) {
 
-        Cliente cliente = repository.findOne(id);
+        Cliente cliente = service.buscar(id);
         if (cliente == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
