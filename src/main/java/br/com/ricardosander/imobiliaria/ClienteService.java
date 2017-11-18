@@ -5,6 +5,8 @@ import br.com.ricardosander.imobiliaria.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClienteService {
 
@@ -29,5 +31,14 @@ public class ClienteService {
      */
     public Cliente criar(Cliente cliente) {
         return repository.save(cliente);
+    }
+
+    /**
+     * Busca todos os clientes.
+     *
+     * @return Lista com todos os clientes.
+     */
+    public List<Cliente> buscar() {
+        return (List<Cliente>) repository.findAll();
     }
 }
