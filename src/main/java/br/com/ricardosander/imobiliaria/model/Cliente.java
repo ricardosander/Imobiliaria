@@ -14,14 +14,13 @@ public class Cliente {
 
     private String nome;
 
+    private String rg;
+
+    private String cpf;
+
     @Deprecated
     public Cliente() {
 
-    }
-
-    public Cliente(Long id, String nome) {
-        this.id = id;
-        this.nome = nome;
     }
 
     public Long getId() {
@@ -30,5 +29,13 @@ public class Cliente {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 }
