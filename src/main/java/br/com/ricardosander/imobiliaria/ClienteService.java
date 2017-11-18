@@ -11,8 +11,23 @@ public class ClienteService {
     @Autowired
     private ClienteRepository repository;
 
+    /**
+     * Busca um cliente pelo seu id.
+     *
+     * @param id Id do cliente para a busca.
+     * @return Cliente encontrado, null caso não exista id especificado.
+     */
     public Cliente buscar(Long id) {
         return repository.findOne(id);
     }
 
+    /**
+     * Cria um novo cliente.
+     *
+     * @param cliente Cliente para ser criado.
+     * @return Cliente criado.
+     */
+    public Cliente criar(Cliente cliente) {
+        return repository.save(cliente);
+    }
 }
