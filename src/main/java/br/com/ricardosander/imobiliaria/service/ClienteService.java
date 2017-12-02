@@ -1,4 +1,4 @@
-package br.com.ricardosander.imobiliaria;
+package br.com.ricardosander.imobiliaria.service;
 
 import br.com.ricardosander.imobiliaria.model.Cliente;
 import br.com.ricardosander.imobiliaria.repository.ClienteRepository;

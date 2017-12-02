@@ -1,7 +1,7 @@
 package br.com.ricardosander.imobiliaria.controller;
 
-import br.com.ricardosander.imobiliaria.ClienteService;
 import br.com.ricardosander.imobiliaria.model.Cliente;
+import br.com.ricardosander.imobiliaria.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
