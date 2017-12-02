@@ -47,4 +47,36 @@ public class ClienteController {
         return ResponseEntity.created(uriComponents.toUri()).build();
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity alterar(@PathVariable Long id, @RequestBody Cliente cliente) {
+
+        if (service.buscar(id) == null) {
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
+
+        cliente.setId(id);
+        Cliente clienteAtualizado = service.atualizar(cliente);
+        if (clienteAtualizado == null || cliente.getId() != clienteAtualizado.getId()) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity(HttpStatus.OK);
+
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity deletar(@PathVariable Long id) {
+
+        Cliente cliente = service.buscar(id);
+        if (cliente == null) {
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
+
+        if (!service.remover(cliente)) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
 }

@@ -38,4 +38,8 @@ public class Cliente {
     public String getCpf() {
         return cpf;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

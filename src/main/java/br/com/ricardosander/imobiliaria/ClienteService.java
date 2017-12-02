@@ -41,4 +41,30 @@ public class ClienteService {
     public List<Cliente> buscar() {
         return (List<Cliente>) repository.findAll();
     }
+
+    /**
+     * Atualiza um cliente.
+     *
+     * @param cliente Cliente para ser atualizado
+     * @return Cliente atualizado.
+     */
+    public Cliente atualizar(Cliente cliente) {
+        return repository.save(cliente);
+    }
+
+    /**
+     * Remove um cliente.
+     *
+     * @param cliente Cliente para ser removido, com id.
+     */
+    public boolean remover(Cliente cliente) {
+
+        if (cliente == null || cliente.getId() == null || cliente.getId() < 1) {
+            return false;
+        }
+
+        repository.delete(cliente.getId());
+        return true;
+    }
+
 }
